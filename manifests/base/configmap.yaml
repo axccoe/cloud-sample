@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sampleapp1-82210889-config
+data:
+  APP_NAME: "sampleapp1"
+  USER_ID: "82210889"
