@@ -1,5 +1,5 @@
 # FROM bellsoft/liberica-openjdk-alpine:17
-FROM FROM eclipse-temurin:17-jre
+FROM eclipse-temurin:17-jre
 
 VOLUME /tmp
 
