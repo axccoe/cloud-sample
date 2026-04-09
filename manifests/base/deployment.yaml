@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: sampleapp1-82210889
-          image: cepgbaseacr.azurecr.io/sampleapp1-82210889:latest
+          image: lamon777/sampleapp1-82210889:latest
           ports:
             - containerPort: 8080
           envFrom:
