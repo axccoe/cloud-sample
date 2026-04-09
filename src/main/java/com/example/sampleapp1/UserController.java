@@ -36,6 +36,7 @@ public class UserController {
 // install : src 코드와 의존성 컴파일 후 패키징
 // 최초 실행 시 인터넷에서 라이브러리를 다운로드하므로 시간이 조금 걸릴 수 있습니다.
 // --------------------------테스트 방법--------------------------
+
     private static final String EMPLOYEE_ID = "82188379"; // 조우철님 사번
 
     @GetMapping("/api/v1/user")
