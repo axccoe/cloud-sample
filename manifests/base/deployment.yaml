@@ -26,4 +26,4 @@ spec:
       volumes:
         - name: app-storage
           persistentVolumeClaim:
-            claimName: sampleapp1-pvc        
+            claimName: sampleapp1-82210889-pvc        
