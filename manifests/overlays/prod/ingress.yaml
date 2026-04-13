@@ -3,9 +3,9 @@ kind: Ingress
 metadata:
   name: cloud-sample-ingress
 spec:
-  ingressClassName: ingress-internal
+  ingressClassName: webapprouting.kubernetes.azure.com
   rules:
-  - host: cloud-sample-prod.cepg-aa.kubepia.net
+  - host: cloud-sample.82288143.ce.kubepia.net
     http:
       paths:
       - path: /
