@@ -1,5 +1,6 @@
 # FROM bellsoft/liberica-openjdk-alpine:17
-FROM cepgbaseacr.azurecr.io/docker.io/openjdk:17-slim
+#FROM cepgbaseacr.azurecr.io/docker.io/openjdk:17-slim
+FROM eclipse-temurin:17-jre
 
 VOLUME /tmp
 
