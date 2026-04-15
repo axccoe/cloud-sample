@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sampleapp1
+  namespace: sampleapp1-82188379
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sampleapp1
+  template:
+    metadata:
+      labels:
+        app: sampleapp1
+    spec:
+      containers:
+        - name: sampleapp1
+          image: cepgacr.azurecr.io/sampleapp1:latest
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: sampleapp1-config
+          volumeMounts:
+            - name: app-storage
+              mountPath: /data
+      volumes:
+        - name: app-storage
+          persistentVolumeClaim:
+            claimName: sampleapp1-pvc

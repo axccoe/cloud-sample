@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sampleapp1-ingress
+  namespace: sampleapp1-82188379
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: sampleapp1-82188379.cepg-aa.kubepia.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sampleapp1-service
+                port:
+                  number: 80

@@ -4,7 +4,6 @@ metadata:
   name: cloud-sample-pvc
   namespace: cloud-sample-82188379
 spec:
-  storageClassName: default
   accessModes:
     - ReadWriteOnce
   resources:
