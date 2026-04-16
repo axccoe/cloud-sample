@@ -45,11 +45,11 @@ jobs:
             docker tag ${{ env.LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }} ${{ env.LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }}
 
     - name: 'Push image'
-      uses: azure/docker-login@v1
-      with:
-        login-server: ${{ env.LOGIN_SERVER }}
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}
+      # uses: azure/docker-login@v1
+      # with:
+      #   login-server: ${{ env.LOGIN_SERVER }}
+      #   username: ${{ secrets.REGISTRY_USERNAME }}
+      #   password: ${{ secrets.REGISTRY_PASSWORD }}
     
     - run: |
           docker push ${{ env.LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }}
