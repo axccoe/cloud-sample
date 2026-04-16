@@ -12,14 +12,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-       
+        
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Mavencloud-sample
+    - name: Build with Maven
       run: mvn -B package --file pom.xml
 
     - name: Setup Kustomize
@@ -29,7 +29,7 @@ jobs:
       id: gen-version
       run: |
         echo "::set-output name=VERSION::`date +%Y%m%d%H%M`"
-       
+        
     - name: 'ACR login'
       uses: azure/docker-login@v1
       with:
@@ -40,7 +40,7 @@ jobs:
     - name: 'Build & Tag Image'
       run: |
             docker build -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }} -f Dockerfile .
-            docker tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }} ${{ secrets.STAPACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }}
+            docker tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }}
 
     - name: 'Push image'
       uses: azure/docker-login@v1
@@ -48,22 +48,20 @@ jobs:
         login-server: ${{ env.REGISTRY }}
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
-   
+    
     - run: |
           docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }}
 
-    # - name: Update Kubernetes resources
-    #   run: |
-    #       cd manifests/overlays/prod
-    #       kustomize edit set image ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }}
-    #       cat kustomization.yaml
+    - name: Update Kubernetes resources
+      run: |
+          cd manifests/overlays/prod
+          kustomize edit set image ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }}
+          cat kustomization.yaml
 
-    # - name: Commit files
-    #   run: |
-    #       cd manifests
-    #       git config --global user.email "github-actions@github.com"
-    #       git config --global user.name "github-actions"
-    #       git commit -am "Update image tag"
-    #       git push -u origin main
-
-
+    - name: Commit files
+      run: |
+          cd manifests
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "github-actions"
+          git commit -am "Update image tag"
+          git push -u origin main
