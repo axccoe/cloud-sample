@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: cloud-sample-pvc
+  name: cepg-aa-std-pvc
 spec:
   storageClassName: default
   accessModes:
