@@ -21,7 +21,8 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file backend/pom.xml
+      working-directory: ./
+      run: mvn -B package --file pom.xml
 
     - name: Setup Kustomize
       uses: imranismail/setup-kustomize@v1
