@@ -5,8 +5,6 @@ on: workflow_dispatch
 env:
   IMAGE_NAME: cloud-sample
   LOGIN_SERVER: acrcloudbizcecomm.azurecr.io
-  REGISTRY_USERNAME:
-  REGISTRY_PASSWORD:
 
 jobs:
   build:
@@ -38,8 +36,8 @@ jobs:
       uses: azure/docker-login@v1
       with:
         login-server: ${{ env.LOGIN_SERVER }}
-        username: ${{ env.REGISTRY_USERNAME }}
-        password: ${{ env.REGISTRY_PASSWORD }}
+        # username: ${{ env.REGISTRY_USERNAME }}
+        # password: ${{ env.REGISTRY_PASSWORD }}
 
     - name: 'Build & Tag Image'
       run: |
@@ -50,8 +48,8 @@ jobs:
       uses: azure/docker-login@v1
       with:
         login-server: ${{ env.LOGIN_SERVER }}
-        username: ${{ env.REGISTRY_USERNAME }}
-        password: ${{ env.REGISTRY_PASSWORD }}
+        # username: ${{ env.REGISTRY_USERNAME }}
+        # password: ${{ env.REGISTRY_PASSWORD }}
     
     - run: |
           docker push ${{ env.LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }}
