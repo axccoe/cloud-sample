@@ -3,3 +3,8 @@ resources:
 - service.yaml
 - ingress.yaml
 - pvc.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+images:
+- name: acrcloudbizcecomm.azurecr.io/82188379/cloud-sample
+  newTag: "202604160603"
