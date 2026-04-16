@@ -4,7 +4,7 @@ metadata:
   name: cepg-aa-std-pvc
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   storageClassName: default
   resources:
     requests:
