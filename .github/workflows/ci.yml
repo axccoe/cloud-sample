@@ -36,8 +36,8 @@ jobs:
       uses: azure/docker-login@v1
       with:
         login-server: ${{ env.LOGIN_SERVER }}
-        # username: ${{ env.REGISTRY_USERNAME }}
-        # password: ${{ env.REGISTRY_PASSWORD }}
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
 
     - name: 'Build & Tag Image'
       run: |
@@ -48,8 +48,8 @@ jobs:
       uses: azure/docker-login@v1
       with:
         login-server: ${{ env.LOGIN_SERVER }}
-        # username: ${{ env.REGISTRY_USERNAME }}
-        # password: ${{ env.REGISTRY_PASSWORD }}
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
     
     - run: |
           docker push ${{ env.LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }}
