@@ -3,7 +3,7 @@ name: Java CI with Maven
 on: workflow_dispatch
 
 env:
-  IMAGE_NAME: cloud-sample
+  IMAGE_NAME: 82188379/cloud-sample
   LOGIN_SERVER: acrcloudbizcecomm.azurecr.io
 
 jobs:
