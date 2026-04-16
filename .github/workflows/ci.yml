@@ -38,4 +38,3 @@ jobs:
     - name: Push Image
       run: |
         docker push ${{ secrets.STAPACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }}
-        
