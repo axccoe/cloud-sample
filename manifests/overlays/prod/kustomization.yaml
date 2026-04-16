@@ -4,7 +4,7 @@ configMapGenerator:
   name: cloud-sample-configmap
 resources:
 - ../../base
-- pvc.yaml
+- overlays/prod/pvc.yaml
 patchesStrategicMerge:
 - deployment.yaml
 - ingress.yaml
