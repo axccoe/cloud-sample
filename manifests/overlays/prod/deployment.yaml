@@ -9,7 +9,7 @@ spec:
       containers:
         - name: cloud-sample 
           command: ["java","-jar","/app.jar"]
-          args: ["--spring.config.location=file:/config/application.yml"]
+          args: ["--spring.config.location=file:/config/application.yaml"]
           volumeMounts:
           - mountPath: /mnt/cloud-sample
             name: cloud-sample-volume
@@ -27,6 +27,6 @@ spec:
         configMap:
           name: cloud-sample-configmap
           items:
-            - key: application.yml
-              path: application.yml
+            - key: application.yaml
+              path: application.yaml
           defaultMode: 420
