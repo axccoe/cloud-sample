@@ -1,9 +1,10 @@
-package com.example.sampleapp1.controller;
+package com.example.demo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -14,9 +15,9 @@ public class UserController {
 
     @GetMapping("/user")
     public Map<String, String> getUser() {
-        return Map.of(
-                "employeeId", EMPLOYEE_ID
-        );
+        Map<String, String> map = new HashMap<>();
+        map.put("employeeId", EMPLOYEE_ID);
+        return map;
     }
 
 }

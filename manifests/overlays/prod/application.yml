@@ -27,3 +27,7 @@ management:
 
 pvc:
   path: /mnt/cloud-sample
+
+logging:
+  level:
+    org.springframework.web.servlet.mvc.method.annotation: TRACE
