@@ -7,3 +7,6 @@ spec:
     - port: 8080 
     selector:
         app: cloud-sample
+    ports:
+    - port: 80
+      targetPort: 8080
