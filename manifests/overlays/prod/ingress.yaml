@@ -8,7 +8,7 @@ spec:
   - host: cloud-sample.82210667.ce.kubepia.net
     http:
       paths:
-      - path: /
+      - path: /api(/|$)(.*)
         backend:
           service:
             name: cloud-sample
