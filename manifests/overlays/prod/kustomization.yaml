@@ -1,6 +1,6 @@
 configMapGenerator:
 - files:
-  - application.yml
+  - application.yaml
   name: cloud-sample-configmap
 resources:
 - ../../base
