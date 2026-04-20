@@ -17,10 +17,3 @@ spec:
           image: acrcloudbizcecomm.azurecr.io/82210667/cloud-sample
           ports:
           - containerPort: 8080
-          volumeMounts:
-          - name: app-storage
-            mountPath: /data
-      volumes:
-      - name: app-storage
-        persistentVolumeClaim:
-          claimName: cepg-aa-std-pvc
