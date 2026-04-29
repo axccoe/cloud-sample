@@ -1,6 +1,6 @@
 configMapGenerator:
 - files:
-  - application.yml
+  - application.yaml
   name: cloud-sample-configmap
 resources:
 - ../../base
@@ -12,5 +12,5 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namePrefix: prod-
 images:
-- name: cepgstapacr.azurecr.io/cloud-sample
+- name: acrcloudbizcecomm.azurecr.io/82210667/cloud-sample
   newTag: "202408120727"

@@ -4,8 +4,8 @@ metadata:
   name: cepg-aa-std-pvc
 spec:
   accessModes:
-    - ReadWriteMany
-  storageClassName: cepg-aa-std-rwmany
+    - ReadWriteOnce
+  storageClassName: default
   resources:
     requests:
       storage: 1Gi
